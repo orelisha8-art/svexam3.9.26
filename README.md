@@ -1,6 +1,12 @@
 # 🏋️ Workout Tracker App
 
-אפליקציית Fullstack לניהול אימונים – Backend ב-Express + MongoDB, ו-Frontend ב-React (Vite) + Tailwind CSS.
+אפליקציית Fullstack לניהול אימונים – Backend ב-Express + MongoDB, ו-Frontend ב-React (Vite) + Tailwind CSS + shadcn/ui.
+
+## 🔗 קישורים חיים
+
+- **Frontend (Vercel):** https://workout-tracker-front-eosin.vercel.app
+- **Backend API (Vercel):** https://back-taupe-three.vercel.app
+- **GitHub:** https://github.com/orelisha8-art/svexam3.9.26
 
 ## 📁 מבנה הפרויקט
 
