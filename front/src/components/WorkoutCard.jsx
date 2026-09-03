@@ -1,4 +1,4 @@
-import { Trash2 } from "lucide-react";
+import { Trash2, Dumbbell } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 
@@ -6,7 +6,10 @@ function WorkoutCard({ workout, onDelete }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{workout.name}</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <Dumbbell className="size-5 shrink-0" />
+          {workout.name}
+        </CardTitle>
         <span className="inline-block w-fit text-xs font-bold uppercase tracking-widest text-space bg-cable px-2 py-1 rounded-full">
           {workout.muscleGroup}
         </span>

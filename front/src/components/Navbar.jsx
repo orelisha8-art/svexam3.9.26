@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { Dumbbell, ListChecks, PlusCircle, Search } from "lucide-react";
 import { cn } from "../lib/utils";
 import PortalLogo from "./decor/PortalLogo";
 import GlitchHeading from "./decor/GlitchHeading";
 
 const linkBase =
-  "px-4 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-all";
+  "flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-all";
 const linkActive = "bg-portal text-space shadow-[0_0_16px_rgba(151,206,76,0.7)]";
 const linkInactive = "text-cable hover:bg-cable/10";
 
@@ -26,18 +27,21 @@ function Navbar() {
             to="/all-workouts"
             className={({ isActive }) => cn(linkBase, isActive ? linkActive : linkInactive)}
           >
+            <ListChecks className="size-4" />
             כל האימונים
           </NavLink>
           <NavLink
             to="/add-workout"
             className={({ isActive }) => cn(linkBase, isActive ? linkActive : linkInactive)}
           >
+            <PlusCircle className="size-4" />
             הוספת אימון
           </NavLink>
           <NavLink
             to="/search-workouts"
             className={({ isActive }) => cn(linkBase, isActive ? linkActive : linkInactive)}
           >
+            <Search className="size-4" />
             חיפוש
           </NavLink>
         </div>

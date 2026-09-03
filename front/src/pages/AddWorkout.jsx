@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Dumbbell, Target, FileText } from "lucide-react";
 import { addWorkout, generateWorkoutDescription } from "../api/workouts";
 import { Card } from "../components/ui/card";
 import { Input } from "../components/ui/input";
@@ -73,7 +73,10 @@ function AddWorkout() {
       <Card>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <Label>שם האימון</Label>
+            <Label className="flex items-center gap-1.5">
+              <Dumbbell className="size-3.5" />
+              שם האימון
+            </Label>
             <Input
               type="text"
               value={name}
@@ -84,7 +87,10 @@ function AddWorkout() {
           </div>
 
           <div>
-            <Label>קבוצת שרירים</Label>
+            <Label className="flex items-center gap-1.5">
+              <Target className="size-3.5" />
+              קבוצת שרירים
+            </Label>
             <Input
               type="text"
               value={muscleGroup}
@@ -95,7 +101,10 @@ function AddWorkout() {
 
           <div>
             <div className="flex items-center justify-between mb-1">
-              <Label className="mb-0">תיאור</Label>
+              <Label className="mb-0 flex items-center gap-1.5">
+                <FileText className="size-3.5" />
+                תיאור
+              </Label>
               <Button
                 type="button"
                 variant="ghost"

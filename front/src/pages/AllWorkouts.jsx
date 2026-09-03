@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllWorkouts, deleteWorkout } from "../api/workouts";
+import WorkoutCard from "../components/WorkoutCard";
 import GlitchHeading from "../components/decor/GlitchHeading";
 
 function AllWorkouts() {
