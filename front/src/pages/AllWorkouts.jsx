@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllWorkouts, deleteWorkout } from "../api/workouts";
-import WorkoutCard from "../components/WorkoutCard";
+import GlitchHeading from "../components/decor/GlitchHeading";
 
 function AllWorkouts() {
   const [workouts, setWorkouts] = useState([]);
@@ -35,9 +35,9 @@ function AllWorkouts() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="font-display text-4xl tracking-wide text-portal drop-shadow-[0_0_10px_rgba(151,206,76,0.6)] mb-6">
+      <GlitchHeading className="font-display text-4xl tracking-wide text-portal drop-shadow-[0_0_10px_rgba(151,206,76,0.6)] mb-6">
         כל האימונים
-      </h1>
+      </GlitchHeading>
 
       {loading && <p className="text-cable">טוען אימונים מממד אחר...</p>}
       {error && <p className="text-danger">{error}</p>}

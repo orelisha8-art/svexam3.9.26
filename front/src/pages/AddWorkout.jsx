@@ -7,6 +7,7 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
 import { Button } from "../components/ui/button";
+import GlitchHeading from "../components/decor/GlitchHeading";
 
 function AddWorkout() {
   const [name, setName] = useState("");
@@ -65,9 +66,9 @@ function AddWorkout() {
 
   return (
     <div className="max-w-xl mx-auto px-4 py-8">
-      <h1 className="font-display text-4xl tracking-wide text-portal drop-shadow-[0_0_10px_rgba(151,206,76,0.6)] mb-6">
+      <GlitchHeading className="font-display text-4xl tracking-wide text-portal drop-shadow-[0_0_10px_rgba(151,206,76,0.6)] mb-6">
         הוספת אימון
-      </h1>
+      </GlitchHeading>
 
       <Card>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
