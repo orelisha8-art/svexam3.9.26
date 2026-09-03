@@ -6,7 +6,7 @@ import SearchWorkouts from "./pages/SearchWorkouts";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/all-workouts" replace />} />

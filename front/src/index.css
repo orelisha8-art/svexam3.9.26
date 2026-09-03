@@ -1,1 +1,57 @@
 ﻿@import "tailwindcss";
+
+@theme {
+  --color-portal: #97ce4c;
+  --color-portal-dark: #5c8a2e;
+  --color-cable: #44e5e5;
+  --color-space: #0d0e1a;
+  --color-space-card: #171a2e;
+  --color-danger: #ff5c5c;
+  --color-morty: #ffe066;
+  --font-display: "Bangers", system-ui, sans-serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-space);
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* פורטלים דהויים ברקע בהשראת האווירה של הסדרה, ללא שימוש בלוגו/דמויות */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.35;
+  z-index: -1;
+  animation: portal-spin 18s linear infinite;
+}
+
+body::before {
+  width: 480px;
+  height: 480px;
+  top: -120px;
+  left: -120px;
+  background: conic-gradient(from 90deg, var(--color-portal), transparent 60%);
+}
+
+body::after {
+  width: 420px;
+  height: 420px;
+  bottom: -100px;
+  right: -100px;
+  background: conic-gradient(from 270deg, var(--color-cable), transparent 60%);
+  animation-direction: reverse;
+}
+
+@keyframes portal-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 import { addWorkout, generateWorkoutDescription } from "../api/workouts";
+import { Card } from "../components/ui/card";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
+import { Label } from "../components/ui/label";
+import { Button } from "../components/ui/button";
 
 function AddWorkout() {
   const [name, setName] = useState("");
@@ -59,63 +65,62 @@ function AddWorkout() {
 
   return (
     <div className="max-w-xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Add Workout</h1>
+      <h1 className="font-display text-4xl tracking-wide text-portal drop-shadow-[0_0_10px_rgba(151,206,76,0.6)] mb-6">
+        הוספת אימון
+      </h1>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white border border-gray-200 rounded-lg shadow-sm p-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Workout Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            maxLength={20}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            placeholder="e.g. Squats"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Muscle Group</label>
-          <input
-            type="text"
-            value={muscleGroup}
-            onChange={(e) => setMuscleGroup(e.target.value)}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            placeholder="e.g. Legs"
-          />
-        </div>
-
-        <div>
-          <div className="flex items-center justify-between mb-1">
-            <label className="block text-sm font-medium text-gray-700">Description</label>
-            <button
-              type="button"
-              onClick={handleGenerate}
-              disabled={generating}
-              className="text-xs font-medium text-indigo-600 hover:text-indigo-800 disabled:opacity-50"
-            >
-              {generating ? "יוצר תיאור..." : "✨ Generate with AI"}
-            </button>
+      <Card>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div>
+            <Label>שם האימון</Label>
+            <Input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              maxLength={20}
+              placeholder="לדוגמה: סקוואט"
+            />
           </div>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            maxLength={200}
-            rows={4}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            placeholder="Short description of the workout"
-          />
-          <span className="text-xs text-gray-400">{description.length}/200</span>
-        </div>
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md px-4 py-2 disabled:opacity-50"
-        >
-          {submitting ? "מוסיף..." : "Add Workout"}
-        </button>
-      </form>
+          <div>
+            <Label>קבוצת שרירים</Label>
+            <Input
+              type="text"
+              value={muscleGroup}
+              onChange={(e) => setMuscleGroup(e.target.value)}
+              placeholder="לדוגמה: רגליים"
+            />
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <Label className="mb-0">תיאור</Label>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={handleGenerate}
+                disabled={generating}
+              >
+                <Sparkles className="size-4" />
+                {generating ? "יוצר תיאור..." : "יצירת תיאור עם AI"}
+              </Button>
+            </div>
+            <Textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              maxLength={200}
+              rows={4}
+              placeholder="תיאור קצר של האימון"
+            />
+            <span className="text-xs text-white/40">{description.length}/200</span>
+          </div>
+
+          <Button type="submit" disabled={submitting} size="lg">
+            {submitting ? "מוסיף..." : "הוספת אימון"}
+          </Button>
+        </form>
+      </Card>
     </div>
   );
 }
